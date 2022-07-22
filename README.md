@@ -1,4 +1,4 @@
-<h1 align="center"> RocketHelp </h1>
+<h1 align="center"> RocketHelp (Treinamento React Native) </h1>
 
 ![Uma descrição da imagem](https://user-images.githubusercontent.com/101615835/180493960-72bb5d9d-fa36-4039-aae0-d39a2680f13f.PNG)
 
@@ -6,18 +6,17 @@
 <img src="http://img.shields.io/static/v1?label=STATUS&message=%20FINALIZADO&color=GREEN&style=for-the-badge"/>
 </p>
 
-## Índice 
+## Índice (Scroll :arrow_down:)
 
 * [Descrição do Projeto](#descrição-do-projeto)
 * [Status do Projeto](#status-do-Projeto)
 * [Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
-* [Acesso ao Projeto](#acesso-ao-projeto)
 * [Tecnologias utilizadas](#tecnologias-utilizadas)
-* [Conclusão](#conclusão)
+
 
 
 <h2 align="center"> Descrição do projeto </h2>
-<p align="center"> Aplicação de abertura de solicitações de manutenção, por exemplo, na manutenção do departamento de TI de uma empresa (das maquinas e equipamentos). Um exemplo de uso, é pela abertura de soliçitações/chamados (comunicação entre o suporte com o TI) para a manutenção.  </p>
+<p align="center"> Aplicação de abertura de solicitações de manutenção, por exemplo, na manutenção do departamento de TI de uma empresa (das maquinas e equipamentos). Um exemplo de uso, é pela abertura de solicitações/chamados (comunicação entre o suporte com o TI) para a manutenção.  </p>
 
 <br>
 
@@ -44,8 +43,14 @@
 ![finalizado](https://user-images.githubusercontent.com/101615835/180503342-51c9c2a6-6210-4a51-92ac-3f17320414dc.png)
 
 
+<h2 align="center"> :heavy_check_mark: Tecnologias utilizadas </h2>
 
-
+<ul>
+<li align="center">React Native com Typescript, (expo-cli) </li>
+<li align="center">Expo</li>
+<li align="center">lib Native base, react navigation, react authentication(auth), phosphor react native </li>
+<li align="center">Firebase database, firebase authentication</li>
+</ul>
 
 
 
