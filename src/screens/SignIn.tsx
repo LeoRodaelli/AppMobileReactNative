@@ -1,4 +1,6 @@
 import { VStack, Heading, Icon, useTheme } from 'native-base';
+import { Alert } from 'react-native';
+import auth from '@react-native-firebase/auth';
 import { Envelope, Key } from 'phosphor-react-native';
 import React from 'react';
 import { useState } from 'react';
@@ -10,13 +12,43 @@ import { Button } from '../components/Button';
 
 export function SignIn() {
 
-    const [name, setName] = useState('');
-    const [password, setpassword] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const { colors } = useTheme();
 
+    // alerta no login quando não digitar nada
     function handleSignIn() {
-        console.log(name, password);
+        if(!email || !password) {
+            return Alert.alert('Entrar', 'Informe e-mail e senha');
+        }
+
+        //carregamento / feedback quando clicar para logar
+        setIsLoading(true);
+
+        auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch((error) => {
+            console.log(error);
+            setIsLoading(false);
+            
+            if (error.code === 'auth/invalid-email') {
+                return Alert.alert('Entrar', 'E-mail inválido.');
+            }
+
+            if (error.code === 'auth/wrong-password') {
+                return Alert.alert('Entrar', 'E-mail ou senha inválida.');
+            }
+
+            if (error.code === 'auth/user-not-found') {
+                return Alert.alert('Entrar', 'E-mail ou senha inválida.');
+            }
+
+            return Alert.alert('Entrar', 'Não foi possível acessar')
+
+        });
+       
     }
 
     return (
@@ -31,7 +63,7 @@ export function SignIn() {
                 placeholder="E-mail" 
                 mb={4}
                 InputLeftElement={<Icon as={<Envelope color={colors.gray[300]} />} ml={4} />}
-                onChangeText={setName}
+                onChangeText={setEmail}
             />
 
             <Input 
@@ -39,10 +71,15 @@ export function SignIn() {
                 placeholder="Senha" 
                 InputLeftElement={<Icon as={<Key color={colors.gray[300]} />} ml={4} />}
                 secureTextEntry
-                onChangeText={setpassword}
+                onChangeText={setPassword}
             />
 
-            <Button title="Entrar" w="full" onPress={handleSignIn} />
+            <Button 
+            title="Entrar" 
+            w="full" 
+            onPress={handleSignIn} 
+            isLoading={isLoading}
+            />
             
         </VStack>
     )

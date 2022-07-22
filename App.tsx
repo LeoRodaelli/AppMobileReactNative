@@ -3,7 +3,9 @@ import { NativeBaseProvider, StatusBar } from 'native-base';
 import { StyleSheet, Text, View } from 'react-native';
 import { THEME } from './src/styles/theme';
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
-import { Home } from './src/screens/Home';
+//import { Register } from './src/screens/Register';
+//import { SignIn } from './src/screens/SignIn';
+import { Routes } from './src/routes';
 import { Loading } from './src/components/Loading';
 
 
@@ -19,7 +21,7 @@ export default function App() {
         translucent
       />
 
-      { fontsLoaded ? <Home /> : <Loading />}
+      { fontsLoaded ? <Routes /> : <Loading />}
     </NativeBaseProvider>   
   );
 }
